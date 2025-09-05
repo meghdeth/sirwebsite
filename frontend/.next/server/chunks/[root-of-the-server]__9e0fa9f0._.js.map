@@ -1,7 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 3, "column": 0}, "map": {"version":3,"sources":[],"names":[],"mappings":"","debugId":null}},
-    {"offset": {"line": 55, "column": 0}, "map": {"version":3,"sources":["file:///D:/Recent%20Download/Sir%20Gift/frontend/src/app/api/home/route.ts"],"sourcesContent":["import { NextResponse } from 'next/server'\n\nexport async function GET() {\n  try {\n    // Mock data for home content\n    const homeContent = {\n      id: 1,\n      title: 'Welcome to LDS Lab',\n      subtitle: 'Leading Innovation in Research',\n      description: 'Our laboratory focuses on cutting-edge research and development, fostering innovation and academic excellence. We are committed to advancing knowledge through collaborative research and meaningful contributions to the scientific community.',\n      hero_image: null // You can add an image URL here later\n    }\n\n    return NextResponse.json(homeContent)\n  } catch (error) {\n    console.error('Error in /api/home:', error)\n    return NextResponse.json(\n      { error: 'Internal Server Error' },\n      { status: 500 }\n    )\n  }\n}"],"names":[],"mappings":";;;;AAAA;;AAEO,eAAe;IACpB,IAAI;QACF,6BAA6B;QAC7B,MAAM,cAAc;YAClB,IAAI;YACJ,OAAO;YACP,UAAU;YACV,aAAa;YACb,YAAY,KAAK,sCAAsC;QACzD;QAEA,OAAO,gJAAY,CAAC,IAAI,CAAC;IAC3B,EAAE,OAAO,OAAO;QACd,QAAQ,KAAK,CAAC,uBAAuB;QACrC,OAAO,gJAAY,CAAC,IAAI,CACtB;YAAE,OAAO;QAAwB,GACjC;YAAE,QAAQ;QAAI;IAElB;AACF","debugId":null}}]
-}
