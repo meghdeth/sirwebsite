@@ -16,6 +16,7 @@ export default function PIEducationForm({ initialData, onSubmit, isLoading }: PI
     institution: '',
     location: '',
     year: '',
+    description: '',
     order_index: 1,
     is_active: true
   })
@@ -28,6 +29,7 @@ export default function PIEducationForm({ initialData, onSubmit, isLoading }: PI
         institution: initialData.institution || '',
         location: initialData.location || '',
         year: initialData.year || '',
+        description: initialData.description || '',
         order_index: initialData.order_index || 1,
         is_active: initialData.is_active !== undefined ? initialData.is_active : true
       })
