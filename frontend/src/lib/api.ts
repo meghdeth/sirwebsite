@@ -1,7 +1,7 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+const API_BASE_URL = (process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001').replace(/\/$/, '');
 
 export const apiCall = async (endpoint: string, options?: RequestInit) => {
-  const url = `${API_BASE_URL}${endpoint}`;
+  const url = `${API_BASE_URL}${endpoint.startsWith('/') ? endpoint : '/' + endpoint}`;
   
   const defaultHeaders: Record<string, string> = {};
   
