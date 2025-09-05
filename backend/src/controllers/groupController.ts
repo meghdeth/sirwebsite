@@ -65,7 +65,7 @@ export const createGroupMember = async (req: Request, res: Response) => {
     let image_url = null
     
     // Handle image upload if present - use type assertion
-    const files = req.files as ExpressFileUploadFiles | undefined
+    const files = req.files as any
     if (files && !Array.isArray(files) && files.image) {
       const imageFile = files.image as UploadedFile
       
@@ -118,7 +118,7 @@ export const updateGroupMember = async (req: Request, res: Response) => {
     let image_url = existingMember.image_url
     
     // Handle image upload if present - use type assertion
-    const files = req.files as ExpressFileUploadFiles | undefined
+    const files = req.files as any
     if (files && !Array.isArray(files) && files.image) {
       const imageFile = files.image as UploadedFile
       
@@ -205,7 +205,7 @@ export const deleteGroupMember = async (req: Request, res: Response) => {
 // Upload image for group member
 export const uploadGroupImage = async (req: Request, res: Response) => {
   try {
-    const files = req.files as ExpressFileUploadFiles | undefined
+    const files = req.files as any
     if (!files || Array.isArray(files) || !files.image) {
       return res.status(400).json({ error: 'No image file provided' })
     }
