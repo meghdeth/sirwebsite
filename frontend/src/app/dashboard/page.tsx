@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { apiCall } from '../../lib/api'
 import FloatingModal from '../../components/FloatingModal'
@@ -152,7 +152,7 @@ interface NewJoinerSubmission {
   created_at: string
 }
 
-export default function Dashboard() {
+function DashboardContent() {
   const [activeTab, setActiveTab] = useState('messages')
   const [publicationsSubTab, setPublicationsSubTab] = useState('publications')
   const [messages, setMessages] = useState<Message[]>([])
@@ -2531,5 +2531,12 @@ export default function Dashboard() {
       </FloatingModal>
     </div>
   )
+}
 
+export default function Dashboard() {
+  return (
+    <Suspense fallback={<div style={{ padding: '20px' }}>Loading dashboard...</div>}>
+      <DashboardContent />
+    </Suspense>
+  );
 }

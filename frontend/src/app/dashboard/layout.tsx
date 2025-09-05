@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, Suspense } from 'react'
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 import { 
   Home, 
@@ -17,7 +17,7 @@ import {
   User
 } from 'lucide-react'
 
-export default function DashboardLayout({
+function DashboardContent({
   children,
 }: {
   children: React.ReactNode;
@@ -184,5 +184,17 @@ export default function DashboardLayout({
         {children}
       </div>
     </div>
+  );
+}
+
+export default function DashboardLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <Suspense fallback={<div style={{ padding: '20px' }}>Loading...</div>}>
+      <DashboardContent>{children}</DashboardContent>
+    </Suspense>
   );
 }
